@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CarteleraResponse } from '../interface/cartelera-response';
 
 import { catchError, map, tap } from 'rxjs/operators';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class PeliculasService {
 
   get params () {
     return {
-      api_key : '',
+      api_key : environment.apikey,
       language: 'es-ES',
       page: 1
     }
