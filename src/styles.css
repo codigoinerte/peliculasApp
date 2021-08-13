@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+html {
+    --background: #121212;
+    --text-color-normal: #eef4f7;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-color-normal);
+}
