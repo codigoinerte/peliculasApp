@@ -11,15 +11,16 @@ import { Movie } from '../../interface/cartelera-response';
 export class HomeComponent implements OnInit {
 
 
-  public movie:Movie[] = [];
+  public movies:Movie[] = [];
   public slider:Movie[] = [];
 
   constructor(public PeliculasService:PeliculasService) { }
 
   ngOnInit(): void {
     this.PeliculasService.getCartelera()
-        .subscribe(movie =>{          
-          this.movie = movie;
+        .subscribe(movie =>{     
+          console.log(movie);     
+          this.movies = movie;
           this.slider = movie;
         })
   }

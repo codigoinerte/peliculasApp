@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from '../../interface/cartelera-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-peliculas-poster-grid',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculasPosterGridComponent implements OnInit {
 
-  constructor() { }
+  @Input() movies:Movie[] = [];
+  @Input() TypeList:number = 0;
+  
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
   }
 
+  movieClick(movie:Movie){
+    if(movie.id){
+      this.route.navigateByUrl('pelicula/'+movie.id);
+    }
+  }
 }

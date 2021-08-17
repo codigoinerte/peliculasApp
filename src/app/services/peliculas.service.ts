@@ -4,6 +4,7 @@ import { CarteleraResponse } from '../interface/cartelera-response';
 
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { CategoriaResponse, Genero } from '../interface/categoria-response';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +26,7 @@ export class PeliculasService {
 
    }
 
-  public getCartelera(){
+  public getCartelera(cantidad:number = 10){
     return this.http.get<CarteleraResponse>(`${this.api}movie/now_playing`, { params: this.params })
               .pipe(                 
                 map( (data:CarteleraResponse) => {
@@ -33,5 +34,14 @@ export class PeliculasService {
                 }),
 
               );
+  }
+  public getCategories(){
+    return this.http.get<CategoriaResponse>(`${this.api}genre/movie/list`,{ params: this.params })
+                    .pipe(
+                      map( (data:CategoriaResponse)=>{
+                        return data.genres
+                      })
+                    );
+            
   }
 }

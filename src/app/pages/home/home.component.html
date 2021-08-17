@@ -1,13 +1,7 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
 
-        <div *ngFor="let item of slider; index as i;" class="carousel-item" [ngClass]="{'active': i==0}">
-            <div class="d-block w-100 item-image" [ngStyle]="{ 'background':'url(https://image.tmdb.org/t/p/w500'+item.backdrop_path+')'}"></div>
-            <div class="carousel-caption d-none d-md-block">
-                <h5>{{item.title}}</h5>
-                <p>{{item.overview}}</p>
-            </div>
-        </div>
+        <app-slideshow [slider]="slider"></app-slideshow>
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -18,4 +12,8 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+</div>
+
+<div class="container-fluid">
+    <app-peliculas-poster-grid [movies]="movies" class="row"></app-peliculas-poster-grid>
 </div>

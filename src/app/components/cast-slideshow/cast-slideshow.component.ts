@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from '../../interface/cartelera-response';
 
 @Component({
   selector: 'app-cast-slideshow',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cast-slideshow.component.css']
 })
 export class CastSlideshowComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

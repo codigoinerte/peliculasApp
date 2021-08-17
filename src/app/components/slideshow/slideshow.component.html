@@ -1,1 +1,7 @@
-<p>slideshow works!</p>
+<div *ngFor="let item of slider; index as i;" class="carousel-item" [ngClass]="{'active': i==0}">
+    <img [src]="item.backdrop_path|poster" class="d-block w-100" [alt]="item.title">
+    <div class="carousel-caption d-none d-md-block">
+        <h5>{{item.title}}</h5>
+        <p>{{item.overview}}</p>
+    </div>
+</div>

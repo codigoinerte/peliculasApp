@@ -4,6 +4,7 @@ import { CastSlideshowComponent } from './cast-slideshow/cast-slideshow.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -18,11 +19,12 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
     CastSlideshowComponent,
     NavbarComponent,
     PeliculasPosterGridComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    PipesModule
   ],
   imports: [
     CommonModule,
-    
+    PipesModule
   ]
 })
 export class ComponentsModule { }

@@ -1,1 +1,11 @@
-<p>peliculas-poster-grid works!</p>
+<div *ngFor="let movie of movies" [ngClass]=" TypeList==1?'':'col-xs-12 col-sm-6 col-md-4 col-lg-2 mt-5' ">
+    <div (click)="movieClick(movie)" class="card mb-5">
+        <img [src]="movie.poster_path|poster:1" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-dark text-center">{{ movie.title }}</h5>
+            <!-- <p class="card-text text-dark">{{movie.overview | slice: 0:60}}...</p> -->
+        </div>
+        <i class="far fa-play-circle"></i>
+
+    </div>
+</div>

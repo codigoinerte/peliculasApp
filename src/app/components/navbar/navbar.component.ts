@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PeliculasService } from '../../services/peliculas.service';
+import { Genero } from '../../interface/categoria-response';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  generos:Genero[] = [];
+  
+  constructor(private router:Router, private ps:PeliculasService) {
+    this.ps.getCategories()
+            .subscribe( data => {
+              this.generos = data;
+            });
+   }
 
   ngOnInit(): void {
   }
@@ -16,4 +25,9 @@ export class NavbarComponent implements OnInit {
   TextoBuscar(valor:string){
     this.router.navigateByUrl(`/buscar/${valor}`);
   }
+  categorias(genero:Genero){
+    this.router.navigateByUrl(`/categorias/${genero.id}`);
+  }
+  
+
 }
