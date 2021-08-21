@@ -24,13 +24,13 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-6">
                                 <li *ngFor="let genero of generos|slice:0:(generos.length/2)+1">
-                                    <a class="dropdown-item" (click)="categorias(genero)">{{genero.name}}</a>
+                                    <a class="dropdown-item" [routerLink]="['categorias',genero.id]">{{genero.name}}</a>
                                 </li>
                             </div>
 
                             <div class="col-xs-12 col-sm-6">
                                 <li *ngFor="let genero of generos|slice:(generos.length/2)+1:(generos.length)">
-                                    <a class="dropdown-item" (click)="categorias(genero)">{{genero.name}}</a>
+                                    <a class="dropdown-item" [routerLink]="['categorias',genero.id]">{{genero.name}}</a>
                                 </li>
                             </div>
                         </div>

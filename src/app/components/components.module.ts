@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -24,7 +25,8 @@ import { PipesModule } from '../pipes/pipes.module';
   ],
   imports: [
     CommonModule,
-    PipesModule
+    PipesModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }
