@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.PeliculasService.getCartelera()
-        .subscribe(movie =>{     
+        .subscribe(movie =>{ 
+          this.movies = [];    
           console.log(movie);     
           this.movies = movie;
           this.slider = movie;

@@ -11,12 +11,13 @@ import { CategoriaResponse, Genero } from '../interface/categoria-response';
 export class PeliculasService {
 
   private api:string = 'https://api.themoviedb.org/3/';
+  public carteleraPage:number = 1;
 
   get params () {
     return {
       api_key : environment.apikey,
       language: 'es-ES',
-      page: 1
+      page: this.carteleraPage
     }
   }
 
@@ -25,13 +26,20 @@ export class PeliculasService {
     this.getCartelera();
 
    }
+   resetCarteleraPage()
+   {
+     this.carteleraPage = 1;
+   }
 
-  public getCartelera(cantidad:number = 10){
+  public getCartelera(){
     return this.http.get<CarteleraResponse>(`${this.api}movie/now_playing`, { params: this.params })
               .pipe(                 
                 map( (data:CarteleraResponse) => {
                   return data.results;
                 }),
+                tap(()=>{
+                  this.carteleraPage+=1;
+                })
 
               );
   }
